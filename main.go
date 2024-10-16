@@ -3,16 +3,26 @@ package main
 import (
 	"fmt"
 
-	"github.com/AndreDrummer/gostudies/Struct/structs"
+	vehicle "github.com/AndreDrummer/gostudies/Interfaces/Vehicle"
+	cars "github.com/AndreDrummer/gostudies/Structs/Cars"
 )
 
 func main() {
-	var person structs.Person = structs.Person{
-		structs.Carro{
-			Name: "Ford Fusion",
-		},
-		Name: "André",
+	var Fusion cars.Fusion = cars.Fusion{
+		Brand:        "Ford",
+		Name:         "Fusion",
+		Model:        "Ecoboost 2.0 AWD",
+		CurrentSpeed: 0,
+		MaxSpeed:     310,
+		NWheels:      4,
+		HorsePower:   234,
 	}
 
-	fmt.Println("O %v tem um %v", person.Name, person.Car.Name)
+	var Vehicle vehicle.Vehicle = &Fusion
+
+	fmt.Printf("O %v tem um %v cavalos.\n", Fusion.Name, Fusion.HorsePower)
+
+	Vehicle.Accelerate(10)
+	Vehicle.Break(0)
+
 }
