@@ -6,6 +6,7 @@ type Vehicle interface {
 }
 
 type LuxuryVehicle interface {
+	Vehicle
 	WarmBenches()
 	TurnOnAC()
 }

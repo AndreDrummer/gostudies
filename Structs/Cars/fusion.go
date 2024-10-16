@@ -4,24 +4,28 @@ import (
 	"fmt"
 )
 
-type Fusion struct {
-	Brand        string
-	Name         string
-	Model        string
-	CurrentSpeed int
-	MaxSpeed     int
-	NWheels      int
-	HorsePower   int
-}
+type Fusion struct{ Car Car }
 
 func (f *Fusion) Accelerate(speed int) {
-	CurrentSpeed := f.CurrentSpeed
-	f.CurrentSpeed = CurrentSpeed + speed
-	fmt.Printf("Ao acelerar, a velocidade do %v era %v e agora mudou para %v.\n", f.Name, CurrentSpeed, f.CurrentSpeed)
+	fusion := f.Car
+	CurrentSpeed := fusion.CurrentSpeed
+	fusion.CurrentSpeed = CurrentSpeed + speed
+	fmt.Printf("Ao acelerar, a velocidade do %v era %v e agora mudou para %v.\n", fusion.Name, CurrentSpeed, fusion.CurrentSpeed)
 }
 
 func (f *Fusion) Break(speed int) {
-	CurrentSpeed := f.CurrentSpeed
-	f.CurrentSpeed = CurrentSpeed - speed
-	fmt.Printf("Ao frear, a velocidade do %v era %v e agora mudou para %v.\n", f.Name, CurrentSpeed, f.CurrentSpeed)
+	fusion := f.Car
+	CurrentSpeed := fusion.CurrentSpeed
+	fusion.CurrentSpeed = CurrentSpeed - speed
+	fmt.Printf("Ao frear, a velocidade do %v era %v e agora mudou para %v.\n", fusion.Name, CurrentSpeed, fusion.CurrentSpeed)
+}
+
+func (f *Fusion) WarmBenches() {
+	fusion := f.Car
+	fmt.Printf("O %v está aquecendo os bancos...\n", fusion.Name)
+}
+
+func (f *Fusion) TurnOnAC() {
+	fusion := f.Car
+	fmt.Printf("O %v está com os Ar Condicionado Ligado...\n", fusion.Name)
 }
