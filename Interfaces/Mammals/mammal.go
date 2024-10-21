@@ -1,11 +1,6 @@
 package mammals
 
-type Mammal struct {
-	Specie    string
-	Quadruped bool
-}
-
-type MammalActions interface {
+type Mammal interface {
 	Eat()
 	Sleep()
 }

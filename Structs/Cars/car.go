@@ -1,12 +1,5 @@
 package cars
 
-type Car struct {
-	Brand        string
-	Name         string
-	Model        string
-	CurrentSpeed int
-	MaxSpeed     int
-	NWheels      int
-	HorsePower   int
-	Luxury       bool
-}
+import vehicle "github.com/AndreDrummer/gostudies/Interfaces/Vehicle"
+
+type Car interface{ vehicle.Vehicle }
