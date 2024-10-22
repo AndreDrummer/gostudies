@@ -11,6 +11,7 @@ type Person interface {
 }
 
 type RichPerson interface {
+	Person
 	TravelByYacht()
 	TravelToDisney()
 }
