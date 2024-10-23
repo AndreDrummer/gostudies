@@ -1,7 +1,7 @@
 package people
 
 import (
-	mammals "github.com/AndreDrummer/gostudies/Interfaces/Mammals"
+	mammals "github.com/AndreDrummer/gostudies/Inheritance/Interfaces/Mammals"
 )
 
 type Person interface {

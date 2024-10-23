@@ -3,8 +3,8 @@ package people
 import (
 	"fmt"
 
-	cars "github.com/AndreDrummer/gostudies/Structs/Cars"
-	dogs "github.com/AndreDrummer/gostudies/Structs/Dogs"
+	cars "github.com/AndreDrummer/gostudies/Inheritance/Structs/Cars"
+	dogs "github.com/AndreDrummer/gostudies/Inheritance/Structs/Dogs"
 )
 
 type Poor struct {

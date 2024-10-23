@@ -1,8 +1,8 @@
 package inputs
 
 import (
-	vehicle "github.com/AndreDrummer/gostudies/Interfaces/Vehicle"
-	cars "github.com/AndreDrummer/gostudies/Structs/Cars"
+	vehicle "github.com/AndreDrummer/gostudies/Inheritance/Interfaces/Vehicle"
+	cars "github.com/AndreDrummer/gostudies/Inheritance/Structs/Cars"
 )
 
 var Fusion vehicle.LuxuryVehicle = &cars.Fusion{

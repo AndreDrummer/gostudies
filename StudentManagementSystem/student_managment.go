@@ -1,0 +1,5 @@
+package studentmanagementsystem
+
+func Start() {
+
+}

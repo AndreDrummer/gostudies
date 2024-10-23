@@ -1,7 +1,7 @@
 package inputs
 
 import (
-	people "github.com/AndreDrummer/gostudies/Structs/People"
+	people "github.com/AndreDrummer/gostudies/Inheritance/Structs/People"
 )
 
 var Kwami people.Poor = people.Poor{

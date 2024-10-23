@@ -1,7 +1,7 @@
 package inputs
 
 import (
-	dogs "github.com/AndreDrummer/gostudies/Structs/Dogs"
+	dogs "github.com/AndreDrummer/gostudies/Inheritance/Structs/Dogs"
 )
 
 var Pinscher dogs.Dog = &dogs.Pinscher{
