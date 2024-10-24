@@ -1,5 +1,7 @@
 package studentmanagementsystem
 
-func Start() {
+import system "github.com/AndreDrummer/gostudies/StudentManagementSystem/System"
 
+func Start() {
+	system.StartStudentManagementSystem()
 }
