@@ -1,9 +1,7 @@
 package main
 
-import (
-	studentmanagementsystem "github.com/AndreDrummer/gostudies/StudentManagementSystem"
-)
+import simpleoperations "github.com/AndreDrummer/gostudies/SimpleOperations"
 
 func main() {
-	studentmanagementsystem.Start()
+	simpleoperations.Start()
 }
