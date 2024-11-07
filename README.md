@@ -23,18 +23,18 @@ Phase 2: Understanding Go-Specific Features (1-2 Weeks)
     - [x] Learn Go’s concurrency model and how goroutines work.
     - [x] Understand how to use channels to communicate between goroutines.
     - [x] Explore when and how to apply concurrency in practical situations.
-1. Project Idea: Modify your calculator to handle multiple calculations concurrently (e.g., let the user input several calculations at once, and process them in parallel).
+- [x] Project Idea: Modify your calculator to handle multiple calculations concurrently (e.g., let the user input several calculations at once, and process them in parallel).
 - [x] Error Handling
     - [x] Learn how Go deals with errors (explicit error handling via error type).
     - [x] Practice writing functions that return errors and handle them gracefully.
     - [x] Get used to Go’s philosophy of "Errors are values."
-1. Project Idea: Update your calculator to handle edge cases and invalid inputs (division by zero, non-numeric values) by utilizing Go’s error handling system.
+- [x] Project Idea: Update your calculator to handle edge cases and invalid inputs (division by zero, non-numeric values) by utilizing Go’s error handling system.
 
 Phase 3: Working with Files and APIs (2-3 Weeks)
 - [x] Working with Files
     - [x] Learn how to read from and write to files in Go using os and io packages.
     - [x] Practice opening, writing, and closing files.
-1. Project Idea: Enhance your calculator to log all calculations to a text file. Implement the ability to read past calculations from the file.
+- [x] Project Idea: Enhance your calculator to log all calculations to a text file. Implement the ability to read past calculations from the file.
 - [ ] Build a Simple REST API
     - [ ] Learn how to create a basic REST API using Go’s net/http package or the Gin framework.
     - [ ] Handle routes, query parameters, and JSON responses.
