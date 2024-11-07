@@ -1,4 +1,4 @@
-package system_initializer
+package student_system_initializer
 
 import (
 	"fmt"
@@ -7,43 +7,18 @@ import (
 	"strconv"
 	"strings"
 
-	students "github.com/AndreDrummer/gostudies/StudentManagementSystem/Students"
 	system_panel "github.com/AndreDrummer/gostudies/StudentManagementSystem/System"
-	system "github.com/AndreDrummer/gostudies/StudentManagementSystem/System/structs"
 	"github.com/AndreDrummer/gostudies/StudentManagementSystem/Utils/file_handler"
+	"github.com/AndreDrummer/gostudies/StudentManagementSystem/structs"
+	student_system_controller "github.com/AndreDrummer/gostudies/StudentManagementSystem/system/controller"
 )
 
 var (
-	systemInstance *system.System
+	systemInstance *student_system_controller.System
 )
 
 func initSystem() {
-	systemInstance = system.NewSystem()
-}
-
-func getStudentNameAndGrades(studentInfo string) (string, string) {
-
-	parts := strings.Fields(studentInfo)
-	var gradeStartIndex int
-
-	for i := 0; i < len(parts); i++ {
-		if _, err := strconv.Atoi(parts[i]); err == nil {
-			gradeStartIndex = i
-			break
-		}
-	}
-
-	var studentName, grades string
-
-	if gradeStartIndex > 0 {
-		studentName = strings.Join(parts[1:gradeStartIndex], " ")
-		grades = strings.Join(parts[gradeStartIndex:], " ")
-	} else {
-		studentName = strings.Join(parts[1:], " ")
-		grades = ""
-	}
-
-	return studentName, grades
+	systemInstance = student_system_controller.NewSystem()
 }
 
 func convertGradesToInt(grades string) []int {
@@ -64,7 +39,7 @@ func convertGradesToInt(grades string) []int {
 }
 
 func loadStudentsFromDB() {
-	dbFile, err := os.OpenFile(system.DBFilename, os.O_RDONLY, 0644)
+	dbFile, err := os.OpenFile(student_system_controller.DBFilename, os.O_RDWR, 0644)
 
 	if err != nil {
 		log.Fatal(err)
@@ -72,19 +47,23 @@ func loadStudentsFromDB() {
 
 	dbFileContent := file_handler.GetFileContent(dbFile)
 
+	// Remove any empty line that may exists.
+	file_handler.OverrideFileContent(dbFile, dbFileContent)
+
 	if len(dbFileContent) > 0 {
 		for _, v := range dbFileContent {
 			studentIDString := strings.Split(v, ".")[0]
 			studentID, err := strconv.Atoi(studentIDString)
-			studentName, grades := getStudentNameAndGrades(v)
-			fmt.Println(studentName)
-			fmt.Println(grades)
+			if v == "" {
+				continue
+			}
+			studentName, grades := student_system_controller.GetStudentNameAndGrades(v)
 
 			if err != nil {
 				log.Fatal(err)
 			}
 
-			newStudent := &students.Student{
+			newStudent := &structs.Student{
 				ID:     studentID,
 				Grades: convertGradesToInt(grades),
 				Name:   studentName,
@@ -110,10 +89,10 @@ func createDBFile(filename string) error {
 // Fake DB: All is based on files
 func initDB() {
 
-	_, errorReadingFile := os.ReadFile(system.DBFilename)
+	_, errorReadingFile := os.ReadFile(student_system_controller.DBFilename)
 
 	if errorReadingFile != nil {
-		errorCreatingFile := createDBFile(system.DBFilename)
+		errorCreatingFile := createDBFile(student_system_controller.DBFilename)
 
 		if errorCreatingFile != nil {
 			log.Fatal(errorCreatingFile)

@@ -5,15 +5,16 @@ import (
 	"os"
 	"time"
 
-	system "github.com/AndreDrummer/gostudies/StudentManagementSystem/System/structs"
+	utils "github.com/AndreDrummer/gostudies/StudentManagementSystem/Utils"
+	student_system_controller "github.com/AndreDrummer/gostudies/StudentManagementSystem/system/controller"
 )
 
 var (
-	systemInstance *system.System
+	systemInstance *student_system_controller.System
 )
 
-func Start(system *system.System) {
-	// utils.ClearConsole()
+func Start(system *student_system_controller.System) {
+	utils.ClearConsole()
 	systemInstance = system
 
 	fmt.Print("Welcome to the Student Management System!\n")
@@ -26,6 +27,7 @@ func Start(system *system.System) {
 		fmt.Println("4 - Calculate average score of a Student")
 		fmt.Println("5 - Check if a student passed or failed")
 		fmt.Println("6 - Display all students and their grades")
+		fmt.Println("7 - Clear DB")
 		fmt.Println("0 - Exit")
 		fmt.Print("\nEnter your choice: ")
 
@@ -36,7 +38,7 @@ func Start(system *system.System) {
 }
 
 func handleChoice(choice int) {
-	// utils.ClearConsole()
+	utils.ClearConsole()
 	switch choice {
 	case 0:
 		fmt.Printf("\n\n ** Goodbye! **\n\n")
@@ -54,6 +56,8 @@ func handleChoice(choice int) {
 		systemInstance.CheckPassOrFail()
 	case 6:
 		systemInstance.DisplayAll(nil)
+	case 7:
+		systemInstance.ClearDB()
 	default:
 		fmt.Println("Invalid choice. Try again.")
 	}

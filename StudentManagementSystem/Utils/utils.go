@@ -5,6 +5,9 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
+	"sort"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -44,4 +47,34 @@ func ShowOperationResultMsg(format string, a ...interface{}) {
 
 func SetSuccessMsg(msg string) {
 	ShowOperationResultMsg("** Success ** %v!", msg)
+}
+
+func SortSliceStringByID(slice []string, splitter string) {
+	sort.Slice(slice, func(i, j int) bool {
+		ID1 := strings.Split(slice[i], splitter)[0]
+		ID2 := strings.Split(slice[j], splitter)[0]
+
+		ID1 = strings.TrimSpace(ID1)
+		ID2 = strings.TrimSpace(ID2)
+
+		ID1NUM, err1 := strconv.Atoi(ID1)
+		ID2NUM, err2 := strconv.Atoi(ID2)
+
+		if err1 != nil || err2 != nil {
+			fmt.Printf("Error converting IDs to integers: %v, %v\n", err1, err2)
+			return false
+		}
+
+		return ID1NUM < ID2NUM
+	})
+}
+
+func Contains(slice []string, something string) bool {
+	for _, v := range slice {
+		if v == something {
+			return true
+		}
+	}
+
+	return false
 }
