@@ -19,7 +19,7 @@ func ClearConsole() {
 	case "windows":
 		cmd = exec.Command("cmd", "/c", "cls")
 	default:
-		fmt.Println("It was not possible to clear the console on this OS.")
+		fmt.Println("It was not possible to clear the console on this OS kkkkkk.")
 	}
 
 	cmd.Stdout = os.Stdout

@@ -1,4 +1,4 @@
-package student_system_controller
+package controller
 
 import (
 	"bufio"
