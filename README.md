@@ -35,10 +35,10 @@ Phase 3: Working with Files and APIs (2-3 Weeks)
     - [x] Learn how to read from and write to files in Go using os and io packages.
     - [x] Practice opening, writing, and closing files.
 - [x] Project Idea: Enhance your calculator to log all calculations to a text file. Implement the ability to read past calculations from the file.
-- [ ] Build a Simple REST API
-    - [ ] Learn how to create a basic REST API using Go’s net/http package or the Gin framework.
-    - [ ] Handle routes, query parameters, and JSON responses.
-1. Project Idea: Build a basic API for your calculator. The API should accept two numbers and an operation as inputs via URL parameters or POST data, and return the result as JSON.Resources: Go REST API Tutorial
+- [x] Build a Simple REST API
+    - [x] Learn how to create a basic REST API using Go’s net/http package or the Gin framework.
+    - [x] Handle routes, query parameters, and JSON responses.
+1. Project Idea: [go-crud](https://github.com/AndreDrummer/go-crud)
 
 Phase 4: Integrating AWS (3-4 Weeks)
 - [ ] Learn AWS Basics
