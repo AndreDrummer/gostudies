@@ -1,4 +1,4 @@
-package student_system_initializer
+package initializer
 
 import (
 	"fmt"
@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
-	system_panel "github.com/AndreDrummer/gostudies/StudentManagementSystem/System"
 	"github.com/AndreDrummer/gostudies/StudentManagementSystem/Utils/file_handler"
 	"github.com/AndreDrummer/gostudies/StudentManagementSystem/structs"
+	system_panel "github.com/AndreDrummer/gostudies/StudentManagementSystem/system"
 	student_system_controller "github.com/AndreDrummer/gostudies/StudentManagementSystem/system/controller"
 )
 
