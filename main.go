@@ -1,7 +1,7 @@
 package main
 
-import sqlitego "github.com/AndreDrummer/gostudies/Sqlite/Go"
+import mysql "github.com/AndreDrummer/gostudies/MySQL"
 
 func main() {
-	sqlitego.Run()
+	mysql.Run()
 }
